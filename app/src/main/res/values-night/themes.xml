@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.VamosRachar" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="android:statusBarColor">#4D9766FF</item>
+        <item name="android:navigationBarColor">#9D6FFF</item>
+        <item name="colorPrimary">#9D6FFF</item>
+        <item name="android:windowBackground">#181A1F</item>
+    </style>
+
+    <style name="BAR">
+        <item name="android:titleTextColor">#FEFEFE</item>
+    </style>
+
+    <style name="TEXT">
+        <item name="android:textColor">#FEFEFE</item>
+    </style>
+
+    <style name="BUTTON">
+        <item name="android:backgroundTint">#21242C</item>
+    </style>
+</resources>
