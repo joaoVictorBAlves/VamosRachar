@@ -99,7 +99,7 @@
 
 
         <EditText
-            android:id="@+id/editTextNumberDecimal3"
+            android:id="@+id/edPeople"
             style="@style/TEXT"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="0,00"
+        android:text="R$0.00"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
