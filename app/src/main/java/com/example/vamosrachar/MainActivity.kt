@@ -3,6 +3,7 @@ package com.example.vamosrachar
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -12,8 +13,11 @@ import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import java.text.DecimalFormat
+import java.util.Locale
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), TextToSpeech.OnInitListener {
+    private lateinit var textToSpeech: TextToSpeech
+
     private lateinit var btnVoice: ImageButton
     private lateinit var btnSend: ImageButton
     private lateinit var edPrice: EditText
@@ -24,6 +28,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        textToSpeech = TextToSpeech(this, this)
         btnVoice = findViewById(R.id.btnVoice)
         btnSend = findViewById(R.id.btnSend)
         edPrice = findViewById(R.id.edPrice)
@@ -73,6 +78,15 @@ class MainActivity : ComponentActivity() {
                 startActivity(shareIntent)
             }
         })
+
+        btnVoice.setOnClickListener(View.OnClickListener {
+            val price = edPrice.text.toString()
+            val people = edPeople.text.toString()
+
+            if (price.isNotEmpty() && people.isNotEmpty()) {
+                speakResult("A conta deu ${result.text} pra cada um!")
+            }
+        })
     }
 
     inner class TextChangeListener : TextWatcher {
@@ -92,9 +106,38 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    /**
+     * Divide the amount by number of people
+     */
     private fun calculate(): Double {
         val price = Integer.parseInt(edPrice.text.toString())
         val people = Integer.parseInt(edPeople.text.toString())
         return (price * 1.0)/(people * 1.0)
+    }
+
+    /**
+     * Speak the result
+     */
+    private fun speakResult(text: String) {
+        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val locale = Locale.getDefault()
+            val result = textToSpeech.setLanguage(locale)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA ||
+                result == TextToSpeech.LANG_NOT_SUPPORTED
+            ) {
+
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        textToSpeech.stop()
+        textToSpeech.shutdown()
     }
 }
