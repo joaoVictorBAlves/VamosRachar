@@ -1,11 +1,13 @@
 package com.example.vamosrachar
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
@@ -68,14 +70,15 @@ class MainActivity : ComponentActivity(), TextToSpeech.OnInitListener {
             val people = edPeople.text.toString()
 
             if (price.isNotEmpty() && people.isNotEmpty()) {
-                val sendIntent: Intent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, "Vamos rachar: sua parte na conta é ${result.text}!")
-                    type = "text/plain"
+                if(result.text != "Informe valores válidos!" && result.text != ""){
+                    val sendIntent: Intent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, "Vamos rachar: sua parte na conta é ${result.text}!")
+                        type = "text/plain"
+                    }
+                    val shareIntent = Intent.createChooser(sendIntent, null)
+                    startActivity(shareIntent)
                 }
-
-                val shareIntent = Intent.createChooser(sendIntent, null)
-                startActivity(shareIntent)
             }
         })
 
@@ -84,7 +87,9 @@ class MainActivity : ComponentActivity(), TextToSpeech.OnInitListener {
             val people = edPeople.text.toString()
 
             if (price.isNotEmpty() && people.isNotEmpty()) {
-                speakResult("A conta deu ${result.text} pra cada um!")
+                if(result.text != "Informe valores válidos!" && result.text != "") {
+                    speakResult("A conta deu ${result.text} pra cada um!")
+                }
             }
         })
     }
@@ -94,25 +99,30 @@ class MainActivity : ComponentActivity(), TextToSpeech.OnInitListener {
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
+        @SuppressLint("SetTextI18n")
         override fun afterTextChanged(s: Editable?) {
             val price = edPrice.text.toString()
             val people = edPeople.text.toString()
+            Log.d("TEXT", "$price and $people")
 
             if (price.isNotEmpty() && people.isNotEmpty()) {
                 val df = DecimalFormat("#.00")
-                val resultValue = df.format(calculate())
-                result.text = "R$$resultValue"
-            }
-        }
-    }
+                val priceInput = edPrice.text.toString()
+                val peopleInput = edPeople.text.toString()
 
-    /**
-     * Divide the amount by number of people
-     */
-    private fun calculate(): Double {
-        val price = Integer.parseInt(edPrice.text.toString())
-        val people = Integer.parseInt(edPeople.text.toString())
-        return (price * 1.0)/(people * 1.0)
+                val price = if (priceInput.isNotEmpty()) priceInput.toDouble() else 0.0
+                val people = if (peopleInput.isNotEmpty()) peopleInput.toDouble() else 0.0
+
+                if (price == 0.0 || people == 0.0) {
+                    val resultValue = "Informe valores válidos!"
+                    result.text = resultValue
+                } else {
+                    val resultValue = df.format(price/people)
+                    result.text = "R$$resultValue"
+                }
+            }
+
+        }
     }
 
     /**
