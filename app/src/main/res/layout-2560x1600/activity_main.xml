@@ -16,25 +16,25 @@
         app:title="@string/app_name"
         tools:ignore="MissingConstraints" />
 
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="174dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="38dp"
+        android:layout_width="257dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="36dp"
         android:src="@mipmap/icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-
     <TextView
         android:id="@+id/title"
         style="@style/TEXT"
-        android:layout_width="273dp"
-        android:layout_height="30dp"
+        android:layout_width="463dp"
+        android:layout_height="65dp"
         android:text="@string/app_name"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
     <TextView
         android:id="@+id/labelPrice"
         style="@style/TEXT"
-        android:layout_width="296dp"
+        android:layout_width="500dp"
         android:layout_height="21dp"
         android:layout_marginTop="30dp"
         android:text="@string/label_price"
@@ -53,7 +53,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inputPrice"
-        android:layout_width="296dp"
+        android:layout_width="500dp"
         android:layout_height="55dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/rounded_border"
@@ -66,7 +66,7 @@
         <EditText
             android:id="@+id/edPrice"
             style="@style/TEXT"
-            android:layout_width="296dp"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#00FFFFFF"
             android:ems="10"
@@ -80,7 +80,7 @@
     <TextView
         android:id="@+id/labelPessoas"
         style="@style/TEXT"
-        android:layout_width="296dp"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/label_people"
@@ -90,7 +90,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inputPeople"
-        android:layout_width="296dp"
+        android:layout_width="500dp"
         android:layout_height="55dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/rounded_border"
@@ -102,7 +102,7 @@
         <EditText
             android:id="@+id/edPeople"
             style="@style/TEXT"
-            android:layout_width="296dp"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#00FFFFFF"
             android:ems="10"
@@ -117,9 +117,9 @@
     <ImageButton
         android:id="@+id/btnSend"
         style="@style/BUTTON"
-        android:layout_width="137dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="193dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/send"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -129,9 +129,9 @@
     <ImageButton
         android:id="@+id/btnVoice"
         style="@style/BUTTON"
-        android:layout_width="137dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="193dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/volume"
         app:layout_constraintEnd_toStartOf="@+id/btnSend"
         app:layout_constraintHorizontal_bias="0.5"
@@ -141,11 +141,12 @@
     <TextView
         android:id="@+id/result"
         style="@style/TEXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="80dp"
         android:layout_marginTop="40dp"
         android:text="R$0.00"
-        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

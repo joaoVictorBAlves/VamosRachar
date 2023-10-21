@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Vamos rachar?</string>
+    <string name="label_price">Preço</string>
+    <string name="label_people">Pessoas</string>
 </resources>
