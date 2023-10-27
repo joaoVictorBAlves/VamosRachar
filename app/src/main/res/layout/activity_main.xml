@@ -6,36 +6,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        style="@style/BAR"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        app:title="@string/app_name"
-        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="174dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="38dp"
+        android:layout_width="159dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="100dp"
         android:src="@mipmap/icon"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/m_o_com_dinheiro" />
 
     <TextView
         android:id="@+id/title"
         style="@style/TEXT"
-        android:layout_width="273dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:minWidth="273dp"
+        android:minHeight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -43,8 +37,10 @@
     <TextView
         android:id="@+id/labelPrice"
         style="@style/TEXT"
-        android:layout_width="296dp"
-        android:layout_height="21dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="296dp"
+        android:minHeight="21dp"
         android:layout_marginTop="30dp"
         android:text="@string/label_price"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +49,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inputPrice"
-        android:layout_width="296dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="296dp"
+        android:minHeight="55dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/rounded_border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,22 +64,28 @@
         <EditText
             android:id="@+id/edPrice"
             style="@style/TEXT"
-            android:layout_width="296dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="296dp"
             android:backgroundTint="#00FFFFFF"
+            android:textColorHint="#6B6B6B"
             android:ems="10"
+            android:hint="@string/quantia_para_dividir"
             android:inputType="numberDecimal"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:autofillHints="" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/labelPessoas"
         style="@style/TEXT"
-        android:layout_width="296dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="296dp"
+        android:minHeight="21dp"
         android:layout_marginTop="20dp"
         android:text="@string/label_people"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,8 +94,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inputPeople"
-        android:layout_width="296dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="296dp"
+        android:minHeight="55dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/rounded_border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,16 +108,20 @@
         <EditText
             android:id="@+id/edPeople"
             style="@style/TEXT"
-            android:layout_width="296dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="296dp"
             android:backgroundTint="#00FFFFFF"
+            android:textColorHint="#6B6B6B"
             android:ems="10"
+            android:hint="@string/qtd_pessoas"
             android:inputType="numberDecimal"
-            android:paddingLeft="10px"
+            android:paddingStart="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:autofillHints="" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
@@ -121,6 +131,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:src="@drawable/send"
+        android:contentDescription="@string/bot_o_de_enviar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnVoice"
@@ -133,6 +144,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:src="@drawable/volume"
+        android:contentDescription="@string/bot_o_de_voz"
         app:layout_constraintEnd_toStartOf="@+id/btnSend"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +156,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="R$0.00"
+        android:text="@string/r_0_00"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

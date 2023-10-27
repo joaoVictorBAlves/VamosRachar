@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.VamosRachar" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Theme.VamosRachar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:statusBarColor">#4D9766FF</item>
         <item name="android:navigationBarColor">#9D6FFF</item>
         <item name="colorPrimary">#9D6FFF</item>

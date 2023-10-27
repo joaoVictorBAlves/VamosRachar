@@ -2,4 +2,10 @@
     <string name="app_name">Vamos rachar?</string>
     <string name="label_price">Preço</string>
     <string name="label_people">Pessoas</string>
+    <string name="bot_o_de_enviar" translatable="false">enviar</string>
+    <string name="bot_o_de_voz" translatable="false">voz</string>
+    <string name="m_o_com_dinheiro" translatable="false">Mão com dinheiro</string>
+    <string name="quantia_para_dividir" translatable="false">Quantia para dividir</string>
+    <string name="qtd_pessoas" translatable="false">Quantidade de pessoas</string>
+    <string name="r_0_00" translatable="false">R$0.00</string>
 </resources>
